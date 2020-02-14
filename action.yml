@@ -1,0 +1,23 @@
+name: 'EKS kubectl action'
+author: Ian Belcher
+description: An action allowing you to integrate with EKS via kubectl in a Github Action, easily...
+branding:
+  color: 'white'
+  icon: 'command'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  aws_access_key_id:
+    description: Your AWS_ACCESS_KEY_ID
+    required: true
+  aws_secret_access_key:
+    description: Your AWS_SECRET_ACCESS_KEY
+    required: true
+  aws_region:
+    description: The region of the cluster
+    required: true
+  cluster_name:
+    description: The name of the cluster you're using
+    required: true
+  
