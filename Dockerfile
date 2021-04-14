@@ -1,4 +1,4 @@
-FROM python:3.7-alpine3.9
+FROM python:3.10.0a7-alpine3.13
 
 LABEL maintainer="Ian Belcher <github.com@ianbelcher.me>"
 
