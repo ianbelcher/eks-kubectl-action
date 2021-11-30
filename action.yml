@@ -23,4 +23,6 @@ inputs:
   args:
     description: The arguments that you want to pass through to the kubectl command
     required: true
-  
+outputs:
+  kubectl-out:
+    description: The output of the kubectl command
