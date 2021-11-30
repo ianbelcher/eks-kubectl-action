@@ -10,13 +10,13 @@ runs:
 inputs:
   aws_access_key_id:
     description: Your AWS_ACCESS_KEY_ID
-    required: true
+    required: false
   aws_secret_access_key:
     description: Your AWS_SECRET_ACCESS_KEY
-    required: true
+    required: false
   aws_region:
     description: The region of the cluster
-    required: true
+    required: false
   cluster_name:
     description: The name of the cluster you're using
     required: true
