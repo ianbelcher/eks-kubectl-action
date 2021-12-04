@@ -1,0 +1,34 @@
+name: Build docker image
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-docker-image:
+    name: Build docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build docker image
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then
+            tag=latest
+          else
+            tag=${{ github.sha }}
+          fi
+
+          image="ghcr.io/${GITHUB_REPOSITORY}:${tag}"
+
+          docker build -t "${image}" .
+          docker push "${image}"
