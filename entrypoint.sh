@@ -27,7 +27,7 @@ aws --version
 
 echo "Attempting to update kubeconfig for aws"
 
-if [ -n "${INPUT_EKS_ROLE_ARN}"]; then
+if [ -n "${INPUT_EKS_ROLE_ARN}" ]; then
   aws eks update-kubeconfig --name "${INPUT_CLUSTER_NAME}" --role-arn "${INPUT_EKS_ROLE_ARN}"
 else 
   aws eks update-kubeconfig --name "${INPUT_CLUSTER_NAME}"
