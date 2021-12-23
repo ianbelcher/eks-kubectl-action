@@ -26,7 +26,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           cluster_name: ${{ secrets.CLUSTER_NAME }}
-          eks_role_arn: $ {{ secrets.EKS_ROLE_ARN }}
+          eks_role_arn: ${{ secrets.EKS_ROLE_ARN }}
           args: set image --record deployment/pod-name pod-name=${{ steps.build.outputs.IMAGE_URL }}
       # --- #
 ```
