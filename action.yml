@@ -20,6 +20,9 @@ inputs:
   cluster_name:
     description: The name of the cluster you're using
     required: true
+  eks_role_arn:
+    description: EKS role arn that allow access eks cluster (Mostly happen when you create your cluster with CDK).
+    required: false
   args:
     description: The arguments that you want to pass through to the kubectl command
     required: true
