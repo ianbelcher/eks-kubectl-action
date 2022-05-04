@@ -27,5 +27,12 @@ jobs:
           aws_region: ${{ secrets.AWS_REGION }}
           cluster_name: ${{ secrets.CLUSTER_NAME }}
           args: set image --record deployment/pod-name pod-name=${{ steps.build.outputs.IMAGE_URL }}
+          kubernetes_version: v1.21.0
       # --- #
 ```
+
+### Kubernetes Version
+
+To support pinning of the Kubernetes version, the `kubernetes_version` variable was introduced.
+
+The naming convention follows: `vx.xx.x`, ie, `v1.21.0`

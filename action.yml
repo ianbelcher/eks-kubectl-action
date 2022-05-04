@@ -6,7 +6,7 @@ branding:
   icon: 'command'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'Dockerfile' 
 inputs:
   aws_access_key_id:
     description: Your AWS_ACCESS_KEY_ID
@@ -20,7 +20,9 @@ inputs:
   cluster_name:
     description: The name of the cluster you're using
     required: true
+  kubernetes_version:
+    description: Kubernetes version to use for kubectl (ie, v1.21.0)
+    required: true
   args:
     description: The arguments that you want to pass through to the kubectl command
     required: true
-  
