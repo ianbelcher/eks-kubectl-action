@@ -1,15 +1,12 @@
-FROM python:3.10.0a7-alpine3.13
+FROM debian:latest
 
 LABEL maintainer="Ian Belcher <github.com@ianbelcher.me>"
 
-ENV PYTHONIOENCODING=UTF-8
+RUN apt update && apt install -y curl unzip groff
 
-RUN apk add --no-cache curl
-
-RUN pip install awscli
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-RUN chmod +x ./kubectl
-RUN mv ./kubectl /usr/local/bin/kubectl
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+	./aws/install
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
