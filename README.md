@@ -80,5 +80,5 @@ jobs:
           args: set image --record deployment/pod-name pod-name=${{ steps.build.outputs.IMAGE_URL }}
       # --- #
       - name: Use the output
-        run: echo "{{ steps.kubectl.outputs.kubectl-out }}"
+        run: echo "${{ steps.kubectl.outputs.kubectl-out }}"
 ```
