@@ -6,7 +6,7 @@ branding:
   icon: 'command'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/ianbelcher/eks-kubectl-action:latest'
+  image: 'docker://ghcr.io/robholland/eks-kubectl-action:latest'
 inputs:
   aws_access_key_id:
     description: Your AWS_ACCESS_KEY_ID
