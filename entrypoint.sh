@@ -34,6 +34,12 @@ else
 fi
 
 debug "Starting kubectl collecting output"
-output=$( kubectl "$@" )
+
+if [ -n "${INPUT_STDIN:-}" ]; then
+  output=$( kubectl "$@" < "${INPUT_STDIN}" )
+else
+  output=$( kubectl "$@" )
+fi
+
 debug "${output}"
 echo ::set-output name=kubectl-out::"${output}"
