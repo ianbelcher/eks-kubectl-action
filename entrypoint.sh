@@ -42,4 +42,9 @@ else
 fi
 
 debug "${output}"
-echo ::set-output name=kubectl-out::"${output}"
+
+delimiter=$(mktemp -u XXXXXX)
+
+echo "kubectl-out<<${delimiter}" >> $GITHUB_OUTPUT
+echo "${output}" >> $GITHUB_OUTPUT
+echo "${delimiter}" >> $GITHUB_OUTPUT
