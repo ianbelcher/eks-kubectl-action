@@ -1,4 +1,4 @@
-name: 'EKS kubectl'
+name: 'EKS kubectl fork awsv2'
 author: Ian Belcher
 description: An action allowing you to integrate with EKS via kubectl in a Github Action, easily...
 branding:
