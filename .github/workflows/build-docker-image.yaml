@@ -15,11 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: "⛛ downcase GITHUB_REPOSITORY"
+        run: |
+          echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
       - name: Build docker image
         run: |
           if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then
@@ -28,7 +31,7 @@ jobs:
             tag=${{ github.sha }}
           fi
 
-          image="ghcr.io/${GITHUB_REPOSITORY}:${tag}"
+          image="ghcr.io/${{ env.GITHUB_REPOSITORY }}:${tag}"
 
           docker build -t "${image}" .
           docker push "${image}"

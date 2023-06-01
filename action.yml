@@ -1,12 +1,12 @@
-name: 'EKS kubectl'
+name: "EKS kubectl"
 author: Ian Belcher
 description: An action allowing you to integrate with EKS via kubectl in a Github Action, easily...
 branding:
-  color: 'white'
-  icon: 'command'
+  color: "white"
+  icon: "command"
 runs:
-  using: 'docker'
-  image: 'docker://ghcr.io/ianbelcher/eks-kubectl-action:latest'
+  using: "docker"
+  image: "docker://ghcr.io/agreena-aps/eks-kubectl-action:latest"
 inputs:
   aws_access_key_id:
     description: Your AWS_ACCESS_KEY_ID
@@ -28,6 +28,9 @@ inputs:
     required: false
   args:
     description: The arguments that you want to pass through to the kubectl command
+    required: true
+  kubernetes_version:
+    description: Kubernetes version to use for kubectl (ie, v1.21.0)
     required: true
 outputs:
   kubectl-out:
