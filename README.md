@@ -27,6 +27,7 @@ jobs:
           aws_region: ${{ secrets.AWS_REGION }}
           cluster_name: ${{ secrets.CLUSTER_NAME }}
           eks_role_arn: ${{ secrets.EKS_ROLE_ARN }}
+          kubernetes_version: v1.21.0
           args: set image --record deployment/pod-name pod-name=${{ steps.build.outputs.IMAGE_URL }}
       # --- #
 ```
@@ -58,7 +59,6 @@ jobs:
 ```
 
 ### Outputs
-
 The action exports the following outputs:
 - `kubectl-out`: The output of `kubectl`.
 
