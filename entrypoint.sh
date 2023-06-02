@@ -22,8 +22,11 @@ if [ -n "${INPUT_AWS_REGION:-}" ]; then
 fi
 
 if [ -n "${INPUT_KUBERNETES_VERSION:-}" ]; then
-  export KUBERNETES_VERSION="${INPUT_KUBERNETES_VERSION}"
+  KUBERNETES_VERSION="${INPUT_KUBERNETES_VERSION}"
+else
+  KUBERNETES_VERSION="$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)"
 fi
+export KUBERNETES_VERSION
 
 if [ ! -f "kubectl-$KUBERNETES_VERSION" ]; then
   echo "Downloading https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl"
