@@ -10,6 +10,7 @@ for an overview if you're using a new IAM user.
 ## Example configuration
 
 ### Supplying AWS credentials
+
 You can supply your AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, the region your cluster is in, and the cluster name.
 
 ```yaml
@@ -33,6 +34,7 @@ jobs:
 ```
 
 ### Using the AWS credentials present on the environment
+
 If credentials are already present on the environment you don't need to supply them.
 
 ```yaml
@@ -59,6 +61,7 @@ jobs:
 ```
 
 ### Outputs
+
 The action exports the following outputs:
 - `kubectl-out`: The output of `kubectl`.
 
