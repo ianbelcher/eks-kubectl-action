@@ -28,7 +28,10 @@ inputs:
     required: false
   args:
     description: The arguments that you want to pass through to the kubectl command
-    required: true
+    required: false
+  script:
+    description: Run a shell script. Useful when you need to run multiple kubectl commands. run cmd1 -> process results -> run cmd2
+    required: false
   kubernetes_version:
     description: Kubernetes version to use for kubectl (ie, v1.21.0)
     required: false

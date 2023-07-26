@@ -21,6 +21,11 @@ if [ -n "${INPUT_AWS_REGION:-}" ]; then
   export AWS_DEFAULT_REGION="${INPUT_AWS_REGION}"
 fi
 
+if [ $# -eq 0 ] && [ -z ${INPUT_STDIN+x} ] && [ -z ${INPUT_SCRIPT+x} ]; then
+  echo "Must set 1 of args, stdin or script"
+  exit 1
+fi
+
 if [ -n "${INPUT_KUBERNETES_VERSION:-}" ]; then
   KUBERNETES_VERSION="${INPUT_KUBERNETES_VERSION}"
 else
@@ -49,7 +54,9 @@ fi
 
 debug "Starting kubectl collecting output"
 
-if [ -n "${INPUT_STDIN:-}" ]; then
+if [ -n "${INPUT_SCRIPT:-}" ]; then
+  output=$(eval "${INPUT_SCRIPT}")
+elif [ -n "${INPUT_STDIN:-}" ]; then
   output=$(kubectl "$@" <"${INPUT_STDIN}")
 else
   output=$(kubectl "$@")
