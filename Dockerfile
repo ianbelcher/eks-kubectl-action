@@ -4,7 +4,7 @@ LABEL maintainer="Ian Belcher <github.com@ianbelcher.me>"
 
 ENV PYTHONIOENCODING=UTF-8
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl jq
 
 RUN pip install awscli
 
