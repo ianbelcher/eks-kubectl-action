@@ -18,7 +18,7 @@ if [ -n "${INPUT_AWS_SECRET_ACCESS_KEY:-}" ]; then
 fi
 
 if [ -n "${INPUT_AWS_REGION:-}" ]; then
-  export AWS_DEFAULT_REGION="${INPUT_AWS_REGION}"
+  export AWS_REGION="${INPUT_AWS_REGION}"
 fi
 
 if [ -n "${INPUT_KUBERNETES_VERSION:-}" ]; then

@@ -1,12 +1,12 @@
-name: "EKS kubectl"
-author: Ian Belcher
-description: An action allowing you to integrate with EKS via kubectl in a Github Action, easily...
+name: "AWS (V2) EKS - kubectl"
+author: Pieter Develtere
+description: An action allowing you to integrate with EKS via kubectl in a Github Action.
 branding:
   color: "white"
   icon: "command"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/ianbelcher/eks-kubectl-action:latest"
+  image: "docker://ghcr.io/pdeveltere/aws-eks-kubectl:latest"
 inputs:
   aws_access_key_id:
     description: Your AWS_ACCESS_KEY_ID
